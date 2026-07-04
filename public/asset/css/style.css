@@ -125,7 +125,7 @@ a {
 .page-wrapper {
     background-color: #0d1217;
     color: #ffffff;
-    min-height: 100vh;
+    
     overflow-x: hidden;
     position: relative;
 }
@@ -460,7 +460,7 @@ a {
     overflow: hidden;
     color: #e0e0e0;
     padding: 50px 20px;
-    min-height: 100vh;
+    /*  */
 
     background:
         /* Cyan glow */
@@ -544,7 +544,7 @@ a {
     color: #1e293b;
     /* Dark slate text */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
+    
     padding: 80px 0;
 }
 
@@ -613,7 +613,7 @@ a {
         radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 40%), radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.08) 0%, transparent 40%), linear-gradient(135deg, #ffffff 0%, rgb(219 255 244) 100%);
     background-size: 200% 200%;
     animation: softFloat 20s ease-in-out infinite reverse;
-    min-height: 100vh;
+    
     padding: 40px 20px;
     font-family: 'Inter', sans-serif;
     color: #0f172a;
@@ -729,7 +729,7 @@ a {
     background-size: 200% 200%;
     animation: fxSoftFloatDark 20s ease-in-out infinite;
 
-    min-height: 100vh;
+    
     width: 100%;
     font-family: 'Inter', sans-serif;
     color: #f8fafc;
@@ -852,7 +852,7 @@ a {
     background-size: 200% 200%;
     animation: zxSoftFloatDark 20s ease-in-out infinite;
 
-    min-height: 100vh;
+    
     width: 100%;
     font-family: 'Inter', sans-serif;
     color: #f3f4f6;
@@ -1093,7 +1093,7 @@ a {
         linear-gradient(145deg, #050710 0%, #090514 50%, #041217 100%);
     background-size: 50px 50px, 50px 50px, 100% 100%;
     background-position: center top;
-    min-height: 100vh;
+    
     width: 100%;
     font-family: 'Inter', sans-serif;
     color: #e5e7eb;
@@ -1362,7 +1362,7 @@ a {
     /* New Deep Space & Slate Teal gradient */
     background: linear-gradient(145deg, #0f2027 0%, #152b36 50%, #1a3947 100%);
     width: 100%;
-    min-height: 100vh;
+    
     font-family: 'Inter', sans-serif;
     padding: 6rem 1rem;
     color: #ffffff;
@@ -1549,7 +1549,7 @@ a {
     /* Updated background to the premium Slate Teal dark gradient */
     background: linear-gradient(145deg, #0f2027 0%, #152b36 50%, #1a3947 100%);
     width: 100%;
-    min-height: 100vh;
+    
     font-family: 'Inter', sans-serif;
     padding: 6rem 1rem;
     color: #ffffff;

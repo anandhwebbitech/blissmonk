@@ -6,7 +6,7 @@
 
                 <div class="col-12 col-lg-4">
                     <div class="dftt-footer-brand">
-                        <img style="width: 200px; background-color: white; padding: 10px 20px; border-radius: 20px;" src="asset/img/bliss.png" alt="">
+                        <img style="width: 200px; background-color: white; padding: 10px 20px; border-radius: 20px;" src="{{asset('asset/img/bliss.png')}}" alt="">
                     </div>
                     <p class="dftt-footer-text">
                         A data-driven organization specializing in advanced Options Trading and Prop Firm account management. We focus on simplified strategies with minimal screen time.
