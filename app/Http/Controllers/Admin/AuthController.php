@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Faq;
+use App\Models\Webinar;
 
 class AuthController extends Controller
 {
@@ -37,33 +38,15 @@ class AuthController extends Controller
             ->onlyInput('email');
     }
 
-    public function dashboard()
+        public function dashboard()
     {
-        $vendors = 100;
-
-        $users = 1;
-
-        $products =1;
-
-        $services = 1;
-
-        $properties =1;
-
-        $category = 1;
-
-        $subcategory = 11;
-
-        $vendortypes = 11;
+        
+        $live_webinar = Webinar::count();
+        $faq = Faq::count();
 
         return view('admin.dashboard', compact(
-            'vendors',
-            'users',
-            'products',
-            'services',
-            'properties',
-            'category',
-            'subcategory',
-            'vendortypes'
+            'live_webinar',
+            'faq',
         ));
     }
 

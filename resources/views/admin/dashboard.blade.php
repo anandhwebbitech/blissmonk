@@ -102,7 +102,7 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="stat-label">Total Webinar</div>
-                        <div class="stat-number">00</div>
+                        <div class="stat-number">{{$live_webinar}}</div>
                     </div>
                     <div class="badge-icon-box accent-indigo">
                         <i class="fa-solid fa-chalkboard-user" style="color: rgb(234, 19, 0);"></i>
@@ -110,6 +110,20 @@
                     </div>
                 </div>
             
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6">
+            <div class="card stat-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="stat-label">Total FAQ</div>
+                        <div class="stat-number">{{$faq}}</div>
+                    </div>
+                    <div class="badge-icon-box accent-indigo">
+                        <i class="fa-solid fa-circle-question" style="color: #4f46e5;"></i>
+                    </div>
+                </div>
             </div>
         </div>
 

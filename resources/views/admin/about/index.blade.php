@@ -160,40 +160,40 @@
     </nav>
 
     <!-- SECTION 1: LIVE DYNAMIC PREVIEWS (Exactly like image_7ad3db.jpg) -->
-    <div class="mb-5">
-        <h5 class="text-muted small fw-bold text-uppercase mb-2">Live Front-End Preview Panel</h5>
+    <!--<div class="mb-5">-->
+    <!--    <h5 class="text-muted small fw-bold text-uppercase mb-2">Live Front-End Preview Panel</h5>-->
         
-        <div class="preview-container">
+    <!--    <div class="preview-container">-->
             <!-- Part 1: Who We Are Live View -->
-            <div class="row align-items-center mb-4">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="text-preview-card">
-                        <h2 class="preview-title" id="live-title">{{ $about->title ?? 'Who we are' }}</h2>
-                        <p class="preview-desc" id="live-desc">{{ $about->description ?? 'Enter your company description here.' }}</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="image-preview-box">
-                        <img id="live-image" src="{{ !empty($about->image) ? asset($about->image) : asset('assets/images/placeholder.jpg') }}" alt="Who We Are">
-                    </div>
-                </div>
-            </div>
+    <!--        <div class="row align-items-center mb-4">-->
+    <!--            <div class="col-md-6 mb-4 mb-md-0">-->
+    <!--                <div class="text-preview-card">-->
+    <!--                    <h2 class="preview-title" id="live-title">{{ $about->title ?? 'Who we are' }}</h2>-->
+    <!--                    <p class="preview-desc" id="live-desc">{{ $about->description ?? 'Enter your company description here.' }}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md-6">-->
+    <!--                <div class="image-preview-box">-->
+    <!--                    <img id="live-image" src="{{ !empty($about->image) ? asset($about->image) : asset('assets/images/placeholder.jpg') }}" alt="Who We Are">-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
             <!-- Part 2: Our Expertise Grid Live View (Matches image_7ad3db.jpg) -->
-            <div class="expertise-preview-box">
-                <h3 class="exp-live-title">
-                    <span class="text-green" id="live-exp-title">{{ $about->expertise_title ?? 'Our Expertise' }}</span>
-                    <span class="text-white" id="live-exp-subtitle">{{ $about->expertise_subtitle ?? 'Prop Trading Excellence' }}</span>
-                </h3>
-               <p class="exp-live-p" id="live-exp-desc">{{ $about->expertise_description ?? 'We specialize in proprietary trading methodologies designed to help traders scale their capital efficiently while maintaining strict risk management practices. Our expertise includes:' }}</p>
+    <!--        <div class="expertise-preview-box">-->
+    <!--            <h3 class="exp-live-title">-->
+    <!--                <span class="text-green" id="live-exp-title">{{ $about->expertise_title ?? 'Our Expertise' }}</span>-->
+    <!--                <span class="text-white" id="live-exp-subtitle">{{ $about->expertise_subtitle ?? 'Prop Trading Excellence' }}</span>-->
+    <!--            </h3>-->
+    <!--           <p class="exp-live-p" id="live-exp-desc">{{ $about->expertise_description ?? 'We specialize in proprietary trading methodologies designed to help traders scale their capital efficiently while maintaining strict risk management practices. Our expertise includes:' }}</p>-->
                 
                 <!-- This container fills up instantly via jQuery -->
-                <div class="expertise-grid-preview" id="live-expertise-grid">
+    <!--            <div class="expertise-grid-preview" id="live-expertise-grid">-->
                     <!-- Javascript will append items here dynamically -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <!-- SECTION 2: ADMIN EDIT FORM -->
     <div class="control-card">
