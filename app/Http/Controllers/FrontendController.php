@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WebinarUserMail;
 use App\Mail\WebinarAdminMail;
+use App\Models\Testimonial;
+
 
 class FrontendController extends Controller
 {
@@ -31,10 +33,11 @@ class FrontendController extends Controller
             $marketing = MarketingSection::first();
             $problemsolving = ProblemSection::first();
             $about= AboutSection::first();
-            $main_content = WebinarHero::first();
+            $hero = WebinarHero::first();
+            $testimonial =  Testimonial::get();
             // dd($main_content);
 
-            return view('frontend.index', compact('leftColumnFaqs', 'rightColumnFaqs', 'frameworkBonus','section','marketing','problemsolving','about'));
+            return view('frontend.index', compact('leftColumnFaqs', 'rightColumnFaqs', 'frameworkBonus','section','marketing','problemsolving','about','hero','testimonial'));
         }
 
         public function webinarRegister(Request $request)

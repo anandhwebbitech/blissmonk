@@ -155,9 +155,7 @@
         <i class="fa-solid fa-wallet me-2"></i> Live Webinar 
     </a>
 
-    <a href="{{route('admin.faqs.index')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> FAQ 
-    </a>
+   
     <a href="{{route('admin.hero.index')}}" class="nav-link">
         <i class="fa-solid fa-sliders me-2"></i> Main Section 
     </a>
@@ -178,6 +176,12 @@
     </a>
       <a href="{{route('admin.funded-section.edit')}}" class="nav-link">
         <i class="fa-solid fa-sliders me-2"></i> WFunded AccountSelection
+    </a>
+     <a href="{{route('admin.faqs.index')}}" class="nav-link">
+        <i class="fa-solid fa-sliders me-2"></i> FAQ 
+    </a>
+     <a href="{{route('admin.testimonials.index')}}" class="nav-link">
+        <i class="fa-solid fa-sliders me-2"></i> Testimonial 
     </a>
       <a href="{{route('admin.email-template.index')}}" class="nav-link">
         <i class="fa-solid fa-sliders me-2"></i> Email Templete

@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\WebinarHeroController;
 use App\Http\Controllers\Admin\WebinarModuleController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Admin\EmailTemplateController;
-
+use App\Http\Controllers\TestimonialController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -37,6 +37,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('faqs', FaqController::class);
         Route::resource('abouts', AboutController::class);
         Route::resource('problem', ProblemSectionController::class);
+        Route::resource('testimonials', TestimonialController::class);
+        
         Route::get('marketing', [MarketingSectionController::class, 'edit'])->name('marketing.edit');
         Route::post('marketing/store', [MarketingSectionController::class, 'store'])->name('marketing.store');
         Route::get('webinar-modules', [WebinarModuleController::class, 'edit'])->name('webinar-modules.edit');

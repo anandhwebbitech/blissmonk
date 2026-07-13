@@ -1,7 +1,100 @@
 @extends('frontend.layout.app')
 
 @section('title', 'BlissMonk - Home')
+<style>
+    /* Individual Grid Block Card Reset */
+    .fx-webinar-module-block {
+        background-color: #0b1517; /* Deep Premium Dark Teal Canvas */
+        padding: 35px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
 
+    /* Module Heading Structure Design */
+    .fx-webinar-module-title {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 25px;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    /* Left Side Title Vertical Line Indicator */
+    .fx-webinar-module-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 3px;
+        height: 24px;
+        background-color: #475569; /* Muted sleek dark bar border */
+        border-radius: 4px;
+    }
+
+    /* List Layout Grid Stack */
+    .fx-webinar-module-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px; /* Clean tracking spacing between nodes */
+    }
+
+    /* Core List Item Typography */
+    .fx-webinar-module-item {
+        display: flex;
+        align-items: flex-start;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -0.2px;
+    }
+
+    /* Accent Configuration: 'none' markup variant style */
+    .fx-accent-none {
+        color: #5c6f84; /* Deep slate dim gray text */
+    }
+    .fx-accent-none::before {
+        content: "—";
+        color: #3b4856;
+        margin-right: 14px;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    /* Accent Configuration: 'green' markup variant style */
+    .fx-accent-green {
+        color: #94a3b8; /* Crisp active readable gray text */
+    }
+    .fx-accent-green::before {
+        content: "▲";
+        color: #10b981; /* High contrast vibrant emerald green glow */
+        margin-right: 14px;
+        font-size: 13px;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+
+    /* Accent Configuration: 'red' markup variant style */
+    .fx-accent-red {
+        color: #94a3b8; /* Crisp active readable gray text */
+    }
+    .fx-accent-red::before {
+        content: "▼";
+        color: #ef4444; /* High contrast bright scarlet red alert */
+        margin-right: 14px;
+        font-size: 13px;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+</style>
 @section('content')
 
     <div class="page-wrapper" id="home">
@@ -316,7 +409,6 @@
                         <section>
                             <p class="prop-thesis-text-content">{{ $marketing->discover_text }}</p>
 
-                            <!-- FIX: <ul>-க்கு ஒரிஜினல் கிளாஸ் மற்றும் <li> ஒவ்வொன்றுக்கும் தேவையான கிளாஸை இன்ஜெக்ட் செய்கிறோம் (image_de6cc0.jpg-ல் உள்ள பிரச்சனைக்காக) -->
                             @php
                                 $benefits = str_replace(
                                     '<ul>',
@@ -324,7 +416,6 @@
                                     $marketing->benefits_list,
                                 );
                                 $benefits = str_replace('<li>', '<li class="prop-thesis-benefit-item">', $benefits);
-                                // ஒருவேளை டேட்டாபேஸ்ல இருந்து வரும் இமோஜியை நீக்க விரும்பினால்:
                                 $benefits = str_replace('✔️', '', $benefits);
                             @endphp
                             {!! $benefits !!}
@@ -376,17 +467,22 @@
                     @foreach ($section->modules_data as $module)
                         <div class="col-12 col-md-6">
                             <section class="fx-webinar-module-block h-100">
-                                <!-- Module Title -->
+                                
                                 <h3 class="fx-webinar-module-title">{{ $module['title'] }}</h3>
 
                                 <ul class="fx-webinar-module-list">
-                                    <!-- Module Items (List Points) -->
                                     @foreach ($module['items'] as $item)
-                                        <li class="fx-webinar-module-item {{ $item['class'] ?? '' }}">
+                                        {{-- Fallback 'fx-accent-none' class path set to prevent breakage --}}
+                                        @php 
+                                            $accentClass = isset($item['accent']) ? 'fx-accent-' . $item['accent'] : 'fx-accent-none'; 
+                                        @endphp
+                                        
+                                        <li class="fx-webinar-module-item {{ $accentClass }}">
                                             {{ $item['text'] }}
                                         </li>
                                     @endforeach
                                 </ul>
+
                             </section>
                         </div>
                     @endforeach
@@ -605,9 +701,7 @@
     </div>
     </div>
 
- 
-   <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <section class="fx-webinar-master-wrapper">
 
@@ -620,64 +714,29 @@
     <div class="swiper webinarSwiper trd-container">
 
         <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
-                            title="Video 1"
-                            allowfullscreen></iframe>
+            {{-- Status active (is_active == 1) ah irukura data-va mattum loop panrom --}}
+            @forelse($testimonial->where('is_active', 1) as $item)
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <div class="video-container">
+                            {{-- Database embed URL structural format path --}}
+                            <iframe src="{{ $item->video_url }}?rel=0&controls=1"
+                                    title="{{ $item->title }}"
+                                    allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1"
-                            title="Video 2"
-                            allowfullscreen></iframe>
-                    </div>
+            @empty
+                {{-- Oru testimonial-um illana intha block visible aagum --}}
+                <div class="swiper-slide w-100 text-center py-5">
+                    <p class="text-muted">No video testimonials available at the moment.</p>
                 </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
-                            title="Video 3"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1"
-                            title="Video 4"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
-                            title="Video 5"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
+            @endforelse
         </div>
 
-        <!-- Navigation -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
 
-        <!-- Pagination -->
         <div class="swiper-pagination"></div>
 
     </div>
@@ -710,7 +769,6 @@
                 <div class="col-12 col-lg-6">
                     @foreach ($leftColumnFaqs as $index => $faq)
                         @php
-                            // எண்களை 01, 02 என மாற்றுகிறோம்
                             $itemNumber = str_pad($index + 1, 2, '0', STR_PAD_LEFT);
                         @endphp
                         <div class="trdd-acc-item">
@@ -735,7 +793,6 @@
                 <div class="col-12 col-lg-6 trdd-acc-grid-right">
                     @foreach ($rightColumnFaqs as $index => $faq)
                         @php
-                            // இடது பக்க கவுண்ட்டை தொடர்ந்து 06, 07 என வர வைக்கிறோம்
                             $itemNumber = str_pad(count($leftColumnFaqs) + $index + 1, 2, '0', STR_PAD_LEFT);
                         @endphp
                         <div class="trdd-acc-item">
@@ -886,7 +943,7 @@
                 <input type="text" name="city" class="form-control mb-3" placeholder="City" required>
 
                 <button type="submit" class="btn btn-success w-100" id="submitBtn">
-                    <span id="btnText">SEND MESSAGE11</span>
+                    <span id="btnText">SEND MESSAGE</span>
                     <span id="btnLoader" class="spinner-border spinner-border-sm ms-2 d-none"></span>
                 </button>
 
