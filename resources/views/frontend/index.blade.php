@@ -1,10 +1,12 @@
 @extends('frontend.layout.app')
 
 @section('title', 'BlissMonk - Home')
+
 <style>
     /* Individual Grid Block Card Reset */
     .fx-webinar-module-block {
-        background-color: #0b1517; /* Deep Premium Dark Teal Canvas */
+        background-color: #0b1517;
+        /* Deep Premium Dark Teal Canvas */
         padding: 35px;
         border-radius: 16px;
         border: 1px solid rgba(255, 255, 255, 0.03);
@@ -33,7 +35,8 @@
         top: 4px;
         width: 3px;
         height: 24px;
-        background-color: #475569; /* Muted sleek dark bar border */
+        background-color: #475569;
+        /* Muted sleek dark bar border */
         border-radius: 4px;
     }
 
@@ -44,7 +47,8 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 18px; /* Clean tracking spacing between nodes */
+        gap: 18px;
+        /* Clean tracking spacing between nodes */
     }
 
     /* Core List Item Typography */
@@ -59,8 +63,10 @@
 
     /* Accent Configuration: 'none' markup variant style */
     .fx-accent-none {
-        color: #5c6f84; /* Deep slate dim gray text */
+        color: #5c6f84;
+        /* Deep slate dim gray text */
     }
+
     .fx-accent-none::before {
         content: "—";
         color: #3b4856;
@@ -71,11 +77,14 @@
 
     /* Accent Configuration: 'green' markup variant style */
     .fx-accent-green {
-        color: #94a3b8; /* Crisp active readable gray text */
+        color: #94a3b8;
+        /* Crisp active readable gray text */
     }
+
     .fx-accent-green::before {
         content: "▲";
-        color: #10b981; /* High contrast vibrant emerald green glow */
+        color: #10b981;
+        /* High contrast vibrant emerald green glow */
         margin-right: 14px;
         font-size: 13px;
         margin-top: 2px;
@@ -84,15 +93,22 @@
 
     /* Accent Configuration: 'red' markup variant style */
     .fx-accent-red {
-        color: #94a3b8; /* Crisp active readable gray text */
+        color: #94a3b8;
+        /* Crisp active readable gray text */
     }
+
     .fx-accent-red::before {
         content: "▼";
-        color: #ef4444; /* High contrast bright scarlet red alert */
+        color: #ef4444;
+        /* High contrast bright scarlet red alert */
         margin-right: 14px;
         font-size: 13px;
         margin-top: 2px;
         flex-shrink: 0;
+    }
+
+    .swiper-wrapper{
+        height: 280px !important;
     }
 </style>
 @section('content')
@@ -467,16 +483,18 @@
                     @foreach ($section->modules_data as $module)
                         <div class="col-12 col-md-6">
                             <section class="fx-webinar-module-block h-100">
-                                
+
                                 <h3 class="fx-webinar-module-title">{{ $module['title'] }}</h3>
 
                                 <ul class="fx-webinar-module-list">
                                     @foreach ($module['items'] as $item)
                                         {{-- Fallback 'fx-accent-none' class path set to prevent breakage --}}
-                                        @php 
-                                            $accentClass = isset($item['accent']) ? 'fx-accent-' . $item['accent'] : 'fx-accent-none'; 
+                                        @php
+                                            $accentClass = isset($item['accent'])
+                                                ? 'fx-accent-' . $item['accent']
+                                                : 'fx-accent-none';
                                         @endphp
-                                        
+
                                         <li class="fx-webinar-module-item {{ $accentClass }}">
                                             {{ $item['text'] }}
                                         </li>
@@ -698,10 +716,8 @@
         </div>
     </div>
 
-    </div>
-    </div>
 
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <section class="fx-webinar-master-wrapper">
 
@@ -714,29 +730,27 @@
     <div class="swiper webinarSwiper trd-container">
 
         <div class="swiper-wrapper">
-            {{-- Status active (is_active == 1) ah irukura data-va mattum loop panrom --}}
-            @forelse($testimonial->where('is_active', 1) as $item)
+            @foreach ($testimonial->where('is_active', 1) as $item)
+                
                 <div class="swiper-slide">
                     <div class="video-card">
                         <div class="video-container">
-                            {{-- Database embed URL structural format path --}}
-                            <iframe src="{{ $item->video_url }}?rel=0&controls=1"
+                             <iframe src="{{ $item->video_url }}?rel=0&controls=1"
                                     title="{{ $item->title }}"
                                     allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
-            @empty
-                {{-- Oru testimonial-um illana intha block visible aagum --}}
-                <div class="swiper-slide w-100 text-center py-5">
-                    <p class="text-muted">No video testimonials available at the moment.</p>
-                </div>
-            @endforelse
+           
+            @endforeach
+
         </div>
 
+        <!-- Navigation -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
 
+        <!-- Pagination -->
         <div class="swiper-pagination"></div>
 
     </div>
@@ -746,7 +760,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  
-
     <div class="trdd-acc-stage">
         <div class="container trdd-acc-container">
 
@@ -923,8 +936,7 @@
     </div>
 
 
-    <!-- Modal Overlay -->
-   <div class="custom-modal-overlay" id="registrationModal">
+    <div class="custom-modal-overlay" id="registrationModal">
         <div class="custom-modal-card">
             <button class="close-modal-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
 

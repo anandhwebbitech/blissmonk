@@ -104,7 +104,7 @@ const webinarSwiper = new Swiper(".webinarSwiper", {
     },
 
     autoplay: {
-        delay: 3500,
+        delay: 35000000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
