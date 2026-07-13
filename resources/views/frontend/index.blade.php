@@ -605,10 +605,88 @@
     </div>
     </div>
 
+ 
+   <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+<section class="fx-webinar-master-wrapper">
 
+    <div class="testimonial-header">
+        <h3 class="fx-webinar-main-title">
+            Testimonial
+        </h3>
+    </div>
 
+    <div class="swiper webinarSwiper trd-container">
 
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
+                            title="Video 1"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1"
+                            title="Video 2"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
+                            title="Video 3"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1"
+                            title="Video 4"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&controls=1"
+                            title="Video 5"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ 
 
     <div class="trdd-acc-stage">
         <div class="container trdd-acc-container">

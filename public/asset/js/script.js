@@ -77,3 +77,74 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+
+
+const webinarSwiper = new Swiper(".webinarSwiper", {
+
+    slidesPerView: 1,
+    spaceBetween: 30,
+
+    loop: true,
+
+    speed: 800,
+
+    grabCursor: true,
+
+    centeredSlides: false,
+
+    keyboard: {
+        enabled: true,
+    },
+
+    mousewheel: {
+        forceToAxis: true,
+    },
+
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+    },
+
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1,
+        },
+
+        768: {
+            slidesPerView: 2,
+        },
+
+        1200: {
+            slidesPerView: 3,
+        }
+
+    },
+
+    observer: true,
+    observeParents: true,
+
+    watchOverflow: true,
+
+    preloadImages: true,
+
+    lazy: false,
+
+    effect: "slide",
+
+});
