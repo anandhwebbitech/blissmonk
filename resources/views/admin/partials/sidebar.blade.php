@@ -163,19 +163,19 @@
         <i class="fa-solid fa-sliders me-2"></i> About Section 
     </a>
     <a href="{{route('admin.problem.index')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> problem Selection 
+        <i class="fa-solid fa-sliders me-2"></i> problem Section 
     </a>
     <a href="{{route('admin.marketing.edit')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> Marketting Selection 
+        <i class="fa-solid fa-sliders me-2"></i> Marketting Section 
     </a>
      <a href="{{route('admin.webinar-modules.edit')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> Webinar Module Selection
+        <i class="fa-solid fa-sliders me-2"></i> Webinar Module Section
     </a>
      <a href="{{route('admin.framework-bonuses.edit')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> Webinar Framework Selection
+        <i class="fa-solid fa-sliders me-2"></i> Webinar Framework Section
     </a>
       <a href="{{route('admin.funded-section.edit')}}" class="nav-link">
-        <i class="fa-solid fa-sliders me-2"></i> WFunded AccountSelection
+        <i class="fa-solid fa-sliders me-2"></i> Funded Account Section
     </a>
      <a href="{{route('admin.faqs.index')}}" class="nav-link">
         <i class="fa-solid fa-sliders me-2"></i> FAQ 
