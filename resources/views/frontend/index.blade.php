@@ -212,34 +212,57 @@
 
     @if ($about)
         <div class="page-wrapper" id="about">
-            <div class="bg-animate "></div>
+            <div class="bg-animate"></div>
 
             <div class="container py-5">
-                <!-- Who We Are Section -->
                 <section class="flex-box">
                     <div class="card-custom">
                         <h2 class="mb-4 text-green">{{ $about->title }}</h2>
                         <p class="lead">{{ $about->description }}</p>
                     </div>
-                    <div class="card-custom p-0 d-flex justify-content-center align-items-center">
-                        <!-- Dynamic Image Path -->
-                        <img src="{{ asset($about->image) }}" alt="Market Analysis" class="chart-img"
-                            onerror="this.style.display='none'">
+                    
+                    <div class="card-custom p-0 d-flex justify-content-center align-items-center position-relative w-100" style="min-height: 315px;">
+                        @if (!empty($about->video_url))
+                            @php
+                                $videoId = '';
+                                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $about->video_url, $match)) {
+                                    $videoId = $match[1];
+                                }
+                            @endphp
+
+                            @if($videoId)
+                                <div class="w-100 h-100" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px;">
+                                    <iframe 
+                                        src="https://www.youtube.com/embed/{{ $videoId }}" 
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            @else
+                                @if(!empty($about->image))
+                                    <img src="{{ asset($about->image) }}" alt="Market Analysis" class="chart-img" onerror="this.style.display='none'">
+                                @endif
+                            @endif
+
+                        @elseif (!empty($about->image))
+                            <img src="{{ asset($about->image) }}" alt="Market Analysis" class="chart-img" onerror="this.style.display='none'">
+                        @endif
                     </div>
                 </section>
 
-                <!-- Expertise Section -->
                 <section class="flex-box">
                     <div class="card-custom" style="flex: 1 1 100%;">
                         <h3 class="mb-4 text-red">{{ $about->expertise_title }}</h3>
                         <h4 class="mb-3">{{ $about->expertise_subtitle }}</h4>
                         <p class="mb-4">{{ $about->expertise_description }}</p>
 
-                        <!-- Expertise Items Loop -->
                         <div class="expertise-container">
-                            @foreach ($about->expertise_items as $item)
-                                <div class="expertise-item">{{ $item }}</div>
-                            @endforeach
+                            @if(!empty($about->expertise_items) && is_array($about->expertise_items))
+                                @foreach ($about->expertise_items as $item)
+                                    <div class="expertise-item">{{ $item }}</div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </section>
